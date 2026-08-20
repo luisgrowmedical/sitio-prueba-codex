@@ -620,6 +620,107 @@ h1 em::after {
   content: "—";
 }
 
+.process {
+  position: relative;
+  overflow: hidden;
+  color: var(--paper);
+  background: var(--forest);
+}
+
+.process-glow {
+  position: absolute;
+  top: -14rem;
+  right: -10rem;
+  width: 32rem;
+  height: 32rem;
+  border: 1px solid rgba(184, 238, 97, 0.18);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 5rem rgba(184, 238, 97, 0.025),
+    0 0 0 10rem rgba(184, 238, 97, 0.015);
+}
+
+.process-heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  align-items: end;
+  margin-bottom: 4rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+}
+
+.process-heading h2 {
+  max-width: 720px;
+  margin-bottom: 0;
+  font-size: clamp(2.7rem, 5vw, 4.6rem);
+}
+
+.process-heading > p {
+  max-width: 430px;
+  margin-bottom: 0.45rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.process-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  grid-template-columns: repeat(4, 1fr);
+  list-style: none;
+}
+
+.process-step {
+  position: relative;
+  min-height: 320px;
+  padding: 2rem 1.5rem 0 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.process-step:not(:first-child) {
+  padding-left: 1.5rem;
+}
+
+.process-step:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.process-number {
+  display: block;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--serif);
+  font-size: 0.75rem;
+}
+
+.process-icon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: 3.5rem 0 2rem;
+  place-items: center;
+  border: 1px solid rgba(184, 238, 97, 0.42);
+  border-radius: 50%;
+  color: var(--ink);
+  background: var(--accent);
+}
+
+.process-step h3 {
+  margin-bottom: 0.65rem;
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+
+.process-step p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.84rem;
+}
+
 .about-grid {
   display: grid;
   align-items: center;
@@ -880,6 +981,18 @@ h1 em::after {
     margin-bottom: 3rem;
   }
 
+  .process-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-step:nth-child(2) {
+    border-right: 0;
+  }
+
+  .process-step:nth-child(n + 3) {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
   .about-grid {
     gap: 4rem;
   }
@@ -992,16 +1105,19 @@ h1 em::after {
   }
 
   .section-heading,
+  .process-heading,
   .about-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
-  .section-heading {
+  .section-heading,
+  .process-heading {
     margin-bottom: 2.5rem;
   }
 
   .section-heading h2,
+  .process-heading h2,
   .about-copy h2,
   .contact h2 {
     font-size: clamp(2.6rem, 12vw, 4rem);
@@ -1138,6 +1254,26 @@ h1 em::after {
 
   .button-light {
     font-size: 0.78rem;
+  }
+
+  .process-list {
+    grid-template-columns: 1fr;
+  }
+
+  .process-step,
+  .process-step:not(:first-child) {
+    min-height: 0;
+    padding: 1.5rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    border-right: 0;
+  }
+
+  .process-step:first-child {
+    border-top: 0;
+  }
+
+  .process-icon {
+    margin: 1.5rem 0 1rem;
   }
 }
 
